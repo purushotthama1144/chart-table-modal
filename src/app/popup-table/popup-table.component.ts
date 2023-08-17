@@ -27,25 +27,11 @@ export class PopupTableComponent implements OnInit , AfterViewInit {
   top10Bullish: MatTableDataSource<any> = new MatTableDataSource<any>();
   bottom10Bearish: MatTableDataSource<any> = new MatTableDataSource<any>();
 
-  @ViewChild('top25BullishPaginator') top25BullishPaginator!: MatPaginator;
-  @ViewChild('bottom25BullishPaginator') bottom25BullishPaginator!: MatPaginator;
-  @ViewChild('top25BearishPaginator') top25BearishPaginator!: MatPaginator;
-  @ViewChild('bottom25BearishPaginator') bottom25BearishPaginator!: MatPaginator;
-  @ViewChild('top10BullishPaginator') top10BullishPaginator!: MatPaginator;
-  @ViewChild('bottom10BearishPaginator') bottom10BearishPaginator!: MatPaginator;
-
   ngOnInit(): void {
     this.refreshDataSource();
   }
 
-  ngAfterViewInit() {
-    this.top25Bullish.paginator = this.top25BullishPaginator;
-    this.bottom25Bullish.paginator = this.bottom25BullishPaginator;
-    this.top25Bearish.paginator = this.top25BearishPaginator;
-    this.bottom25Bearish.paginator = this.bottom25BearishPaginator;
-    this.top10Bullish.paginator = this.top10BullishPaginator;
-    this.bottom10Bearish.paginator = this.bottom10BearishPaginator;
-  }
+  ngAfterViewInit() {}
 
   refreshDataSource(){
     this.top25Bullish = new MatTableDataSource(tableData);
