@@ -1,0 +1,49 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.chart-group .apexcharts-legend {
+    display: none !important;
+}
+
+.sidebar-sticky {
+    @apply sticky top-0  block;
+    height: fit-content;
+  }
+  html,
+  body {
+    height: 100%;
+    background: linear-gradient(180deg,
+        #fbe5d5 0%,
+        #bdd7ee 36%,
+        #9cc3e5 83%,
+        #9cc3e5 100%);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  td,
+  input,
+  textarea,
+  span,
+  div,
+  select,
+  select option,
+  li,mat-label,.mat-mdc-select-value,.mat-mdc-select,
+  a {
+    font-family: Inter var, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol,
+    "Noto Color Emoji" !important;
+    color: black !important;
+  }
+
+  body{
+    color: black !important;
+  }
+  
+  

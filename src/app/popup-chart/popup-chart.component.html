@@ -1,0 +1,2223 @@
+<div class="chart-group">
+
+    <div class="font-bold text-lg mb-4 mt-4 w-full">
+        <h3>Summary:</h3>
+    </div>
+    <div class="container">
+        <div class="w-full">
+            <p class="text-base">In the short term:</p>
+            <p class="line-clamp-2 text-base">
+                Lorem ipsum is placeholder text commonly used in the graphic, print, and
+                publishing industries for previewing layouts and visual mockups.
+            </p>
+        </div>
+    </div>
+    <div class="container mt-2">
+        <p class="text-base">In the intermediate term:</p>
+        <p class="line-clamp-2 text-base">
+            Lorem ipsum is placeholder text commonly used in the graphic, print, and
+            publishing industries for previewing layouts and visual mockups.
+        </p>
+    </div>
+    <div class="container mt-2">
+        <p class="text-base">In the long term:</p>
+        <p class="line-clamp-2 text-base">
+            Lorem ipsum is placeholder text commonly used in the graphic, print, and
+            publishing industries for previewing layouts and visual mockups.
+        </p>
+    </div>
+</div>
+
+<div class="chart-group">
+
+    <div class="font-bold text-lg mb-4 mt-4 w-full">
+        <h3>Index performance:</h3>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="mb-8 mt-4 w-full">
+            <h4 class="font-bold text-base">Dow 30:</h4>
+            <p class="text-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.</p>
+        </div>
+        <!-- Short Term Dow 30 -->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="dowShortTerm.series" [chart]="dowShortTerm.chart" [labels]="dowShortTerm.labels"
+                    [responsive]="dowShortTerm.responsive" [grid]="dowShortTerm.grid"
+                    [plotOptions]="dowShortTerm.plotOptions" [title]="dowShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bar Chart Dow 30 -->
+        <div class="mb-4 mt-4 w-full">
+            <h4 class="font-bold text-base">Component Performance</h4>
+            <p class="text-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.</p>
+        </div>
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="dowIndexElement.series" [chart]="dowIndexElement.chart"
+                    [dataLabels]="dowIndexElement.dataLabels" [plotOptions]="dowIndexElement.plotOptions"
+                    [yaxis]="dowIndexElement.yaxis" [xaxis]="dowIndexElement.xaxis" [fill]="dowIndexElement.fill"
+                    [title]="dowIndexElement.title"></apx-chart>
+            </div>
+            <!-- <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>           
+            </div> -->
+
+        </div>
+    </div>
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>S & P 500</h4>
+        </div>
+
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="sandpShortTerm.series" [chart]="sandpShortTerm.chart"
+                    [labels]="sandpShortTerm.labels" [responsive]="sandpShortTerm.responsive"
+                    [grid]="sandpShortTerm.grid" [plotOptions]="sandpShortTerm.plotOptions"
+                    [title]="sandpShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Component Performance</h4>
+        </div>
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="sandpIndexElement.series" [chart]="sandpIndexElement.chart"
+                    [dataLabels]="sandpIndexElement.dataLabels" [plotOptions]="sandpIndexElement.plotOptions"
+                    [yaxis]="sandpIndexElement.yaxis" [xaxis]="sandpIndexElement.xaxis" [fill]="sandpIndexElement.fill"
+                    [title]="sandpIndexElement.title"></apx-chart>
+            </div>
+            <!-- <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>           
+            </div> -->
+
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>NASDAQ</h4>
+        </div>
+
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="nasdaqShortTerm.series" [chart]="nasdaqShortTerm.chart"
+                    [labels]="nasdaqShortTerm.labels" [responsive]="nasdaqShortTerm.responsive"
+                    [grid]="nasdaqShortTerm.grid" [plotOptions]="nasdaqShortTerm.plotOptions"
+                    [title]="nasdaqShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Component Performance</h4>
+        </div>
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="nasdaqIndexElement.series" [chart]="nasdaqIndexElement.chart"
+                    [dataLabels]="nasdaqIndexElement.dataLabels" [plotOptions]="nasdaqIndexElement.plotOptions"
+                    [yaxis]="nasdaqIndexElement.yaxis" [xaxis]="nasdaqIndexElement.xaxis"
+                    [fill]="nasdaqIndexElement.fill" [title]="nasdaqIndexElement.title"></apx-chart>
+            </div>
+            <!-- <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>           
+            </div> -->
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Midcap</h4>
+        </div>
+
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="midcapShortTerm.series" [chart]="midcapShortTerm.chart"
+                    [labels]="midcapShortTerm.labels" [responsive]="midcapShortTerm.responsive"
+                    [grid]="midcapShortTerm.grid" [plotOptions]="midcapShortTerm.plotOptions"
+                    [title]="midcapShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Component Performance</h4>
+        </div>
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="midcapIndexElement.series" [chart]="midcapIndexElement.chart"
+                    [dataLabels]="midcapIndexElement.dataLabels" [plotOptions]="midcapIndexElement.plotOptions"
+                    [yaxis]="midcapIndexElement.yaxis" [xaxis]="midcapIndexElement.xaxis"
+                    [fill]="midcapIndexElement.fill" [title]="midcapIndexElement.title"></apx-chart>
+            </div>
+            <!-- <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>           
+            </div> -->
+
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Small cap</h4>
+        </div>
+
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="smallcapShortTerm.series" [chart]="smallcapShortTerm.chart"
+                    [labels]="smallcapShortTerm.labels" [responsive]="smallcapShortTerm.responsive"
+                    [grid]="smallcapShortTerm.grid" [plotOptions]="smallcapShortTerm.plotOptions"
+                    [title]="smallcapShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Component Performance</h4>
+        </div>
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="smallcapIndexElement.series" [chart]="smallcapIndexElement.chart"
+                    [dataLabels]="smallcapIndexElement.dataLabels" [plotOptions]="smallcapIndexElement.plotOptions"
+                    [yaxis]="smallcapIndexElement.yaxis" [xaxis]="smallcapIndexElement.xaxis"
+                    [fill]="smallcapIndexElement.fill" [title]="smallcapIndexElement.title"></apx-chart>
+            </div>
+            <!-- <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>           
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<div class="chart-group">
+
+    <div class="font-bold text-lg mb-4 mt-4 w-full">
+        <h3>Global Markets performance:</h3>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>European Markets</h4>
+        </div>
+        <!-- Short Term European -->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="europeonShortTerm.series" [chart]="europeonShortTerm.chart"
+                    [labels]="europeonShortTerm.labels" [grid]="europeonShortTerm.grid"
+                    [plotOptions]="europeonShortTerm.plotOptions" [responsive]="europeonShortTerm.responsive"
+                    [title]="europeonShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Emerging Markets</h4>
+        </div>
+        <!-- Short Term Emerging -->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="emergingShortTerm.series" [chart]="emergingShortTerm.chart"
+                    [labels]="emergingShortTerm.labels" [grid]="emergingShortTerm.grid"
+                    [plotOptions]="emergingShortTerm.plotOptions" [responsive]="emergingShortTerm.responsive"
+                    [title]="emergingShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>South American Markets</h4>
+        </div>
+        <!-- Short Term South American Markets -->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="southAmericanShortTerm.series" [chart]="southAmericanShortTerm.chart"
+                    [labels]="southAmericanShortTerm.labels" [grid]="southAmericanShortTerm.grid"
+                    [plotOptions]="southAmericanShortTerm.plotOptions" [responsive]="southAmericanShortTerm.responsive"
+                    [title]="southAmericanShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="chart-group">
+
+    <div class="font-bold text-lg mb-4 mt-4 w-full">
+        <h3>Sector performance:</h3>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Biotechnology</h4>
+        </div>
+        <!-- Short Term Biotechnology -->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                    [labels]="biotechnologyShortTerm.labels" [grid]="biotechnologyShortTerm.grid"
+                    [plotOptions]="biotechnologyShortTerm.plotOptions" [responsive]="biotechnologyShortTerm.responsive"
+                    [title]="biotechnologyShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Semiconductor</h4>
+        </div>
+        <!-- Short Term Semiconductor -->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="semiconductorShortTerm.series" [chart]="semiconductorShortTerm.chart"
+                    [labels]="semiconductorShortTerm.labels" [grid]="semiconductorShortTerm.grid"
+                    [plotOptions]="semiconductorShortTerm.plotOptions" [responsive]="semiconductorShortTerm.responsive"
+                    [title]="semiconductorShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Airlines</h4>
+        </div>
+        <!-- Short Term Airlines-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="airlineShortTerm.series" [chart]="airlineShortTerm.chart"
+                    [labels]="airlineShortTerm.labels" [responsive]="airlineShortTerm.responsive"
+                    [grid]="airlineShortTerm.grid" [plotOptions]="airlineShortTerm.plotOptions"
+                    [title]="airlineShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Regional Banks</h4>
+        </div>
+        <!-- Short Term Regional Banks-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="regionalBankShortTerm.series" [chart]="regionalBankShortTerm.chart"
+                    [labels]="regionalBankShortTerm.labels" [responsive]="regionalBankShortTerm.responsive"
+                    [grid]="regionalBankShortTerm.grid" [plotOptions]="regionalBankShortTerm.plotOptions"
+                    [title]="regionalBankShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Solar</h4>
+        </div>
+        <!-- Short Term Solar-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="solarShortTerm.series" [chart]="solarShortTerm.chart"
+                    [labels]="solarShortTerm.labels" [responsive]="solarShortTerm.responsive"
+                    [grid]="solarShortTerm.grid" [plotOptions]="solarShortTerm.plotOptions"
+                    [title]="solarShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Healthcare</h4>
+        </div>
+        <!-- Short Term Healthcare-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="healthcareShortTerm.series" [chart]="healthcareShortTerm.chart"
+                    [labels]="healthcareShortTerm.labels" [responsive]="healthcareShortTerm.responsive"
+                    [grid]="healthcareShortTerm.grid" [plotOptions]="healthcareShortTerm.plotOptions"
+                    [title]="healthcareShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Homebuilder</h4>
+        </div>
+        <!-- Short Term Homebuilder-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="builderShortTerm.series" [chart]="builderShortTerm.chart"
+                    [labels]="builderShortTerm.labels" [responsive]="builderShortTerm.responsive"
+                    [grid]="builderShortTerm.grid" [plotOptions]="builderShortTerm.plotOptions"
+                    [title]="builderShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Materials</h4>
+        </div>
+        <!-- Short Term Materials-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="materialShortTerm.series" [chart]="materialShortTerm.chart"
+                    [labels]="materialShortTerm.labels" [responsive]="materialShortTerm.responsive"
+                    [grid]="materialShortTerm.grid" [plotOptions]="materialShortTerm.plotOptions"
+                    [title]="materialShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Communications</h4>
+        </div>
+        <!-- Short Term Communications-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="communicationShortTerm.series" [chart]="communicationShortTerm.chart"
+                    [labels]="communicationShortTerm.labels" [responsive]="communicationShortTerm.responsive"
+                    [grid]="communicationShortTerm.grid" [plotOptions]="communicationShortTerm.plotOptions"
+                    [title]="communicationShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Financials</h4>
+        </div>
+        <!-- Short Term Financials-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="financialShortTerm.series" [chart]="financialShortTerm.chart"
+                    [labels]="financialShortTerm.labels" [responsive]="financialShortTerm.responsive"
+                    [grid]="financialShortTerm.grid" [plotOptions]="financialShortTerm.plotOptions"
+                    [title]="financialShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Technology</h4>
+        </div>
+        <!-- Short Term Technology-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="technologyShortTerm.series" [chart]="technologyShortTerm.chart"
+                    [labels]="technologyShortTerm.labels" [responsive]="technologyShortTerm.responsive"
+                    [grid]="technologyShortTerm.grid" [plotOptions]="technologyShortTerm.plotOptions"
+                    [title]="technologyShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Real Estate</h4>
+        </div>
+        <!-- Short Term Real Estate-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="realEstateShortTerm.series" [chart]="realEstateShortTerm.chart"
+                    [labels]="realEstateShortTerm.labels" [responsive]="realEstateShortTerm.responsive"
+                    [grid]="realEstateShortTerm.grid" [plotOptions]="realEstateShortTerm.plotOptions"
+                    [title]="realEstateShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Consumer Discretionary</h4>
+        </div>
+        <!-- Short Term Consumer Discretionary-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="consumerDicretionShortTerm.series" [chart]="consumerDicretionShortTerm.chart"
+                    [labels]="consumerDicretionShortTerm.labels" [responsive]="consumerDicretionShortTerm.responsive"
+                    [grid]="consumerDicretionShortTerm.grid" [plotOptions]="consumerDicretionShortTerm.plotOptions"
+                    [title]="consumerDicretionShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Consumer Staples</h4>
+        </div>
+        <!-- Short Term Consumer Staples-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="consumerStapleShortTerm.series" [chart]="consumerStapleShortTerm.chart"
+                    [labels]="consumerStapleShortTerm.labels" [responsive]="consumerStapleShortTerm.responsive"
+                    [grid]="consumerStapleShortTerm.grid" [plotOptions]="consumerStapleShortTerm.plotOptions"
+                    [title]="consumerStapleShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Energy</h4>
+        </div>
+        <!-- Short Term Energy-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="energyShortTerm.series" [chart]="energyShortTerm.chart"
+                    [labels]="energyShortTerm.labels" [responsive]="energyShortTerm.responsive"
+                    [grid]="energyShortTerm.grid" [plotOptions]="energyShortTerm.plotOptions"
+                    [title]="energyShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Oil & Gas</h4>
+        </div>
+        <!-- Short Term Oil & Gas-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="OilGasShortTerm.series" [chart]="OilGasShortTerm.chart"
+                    [labels]="OilGasShortTerm.labels" [responsive]="OilGasShortTerm.responsive"
+                    [grid]="OilGasShortTerm.grid" [plotOptions]="OilGasShortTerm.plotOptions"
+                    [title]="OilGasShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Retail</h4>
+        </div>
+        <!-- Short Term Retail-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="retailShortTerm.series" [chart]="retailShortTerm.chart"
+                    [labels]="retailShortTerm.labels" [responsive]="retailShortTerm.responsive"
+                    [grid]="retailShortTerm.grid" [plotOptions]="retailShortTerm.plotOptions"
+                    [title]="retailShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Industrials</h4>
+        </div>
+        <!-- Short Term Industrials-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="industrialShortTerm.series" [chart]="industrialShortTerm.chart"
+                    [labels]="industrialShortTerm.labels" [responsive]="industrialShortTerm.responsive"
+                    [grid]="industrialShortTerm.grid" [plotOptions]="industrialShortTerm.plotOptions"
+                    [title]="industrialShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Utilities</h4>
+        </div>
+        <!-- Short Term Utilities-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="utilityShortTerm.series" [chart]="utilityShortTerm.chart"
+                    [labels]="utilityShortTerm.labels" [responsive]="utilityShortTerm.responsive"
+                    [grid]="utilityShortTerm.grid" [plotOptions]="utilityShortTerm.plotOptions"
+                    [title]="utilityShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Commodities Index</h4>
+        </div>
+        <!-- Short Term Commodities Index-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="commodityIndexShortTerm.series" [chart]="commodityIndexShortTerm.chart"
+                    [labels]="commodityIndexShortTerm.labels" [responsive]="commodityIndexShortTerm.responsive"
+                    [grid]="commodityIndexShortTerm.grid" [plotOptions]="commodityIndexShortTerm.plotOptions"
+                    [title]="commodityIndexShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>20 Year Treasury</h4>
+        </div>
+        <!-- Short Term 20 Year Treasury-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="treasuryShortTerm.series" [chart]="treasuryShortTerm.chart"
+                    [labels]="treasuryShortTerm.labels" [responsive]="treasuryShortTerm.responsive"
+                    [grid]="treasuryShortTerm.grid" [plotOptions]="treasuryShortTerm.plotOptions"
+                    [title]="treasuryShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="font-bold text-lg mb-4 mt-4 w-full">
+            <h4>Gold</h4>
+        </div>
+        <!-- Short Term Gold-->
+        <div class="container m-auto flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+            <div class="w-100 md:w-1/2 flex flex-row justify-center items-center">
+                <apx-chart [series]="goldShortTerm.series" [chart]="goldShortTerm.chart" [labels]="goldShortTerm.labels"
+                    [responsive]="goldShortTerm.responsive" [grid]="goldShortTerm.grid"
+                    [plotOptions]="goldShortTerm.plotOptions" [title]="goldShortTerm.title"></apx-chart>
+            </div>
+            <div class="w-100 md:w-1/2 md:flex md:flex-col md:gap-4">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded">
+                    <div class="block block_item">
+                        <div class="i-type">Industry</div>
+                        <div class="i-name">Technology</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type"></div>
+                        <div class="i-name"></div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Market Cap</div>
+                        <div class="i-name">$1.3 T</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded uppercase-text">
+                    <div class="block block_item">
+                        <div class="i-type">Trend</div>
+                        <div class="i-name">Bullish</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Trend Strength</div>
+                        <div class="i-name">Strong</div>
+                    </div>
+                    <div class="block block_item">
+                        <div class="i-type">Reversal Probability</div>
+                        <div class="i-name">Low</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 md:w-1/2">
+                <div
+                    class="text-contnt-block rounded border border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 w-100 flex justify-center items-center">
+                    <div class="block block_item">
+                        <div class="i-type">Our opinion</div>
+                        <div class="i-type"><b>Hold</b> if you are long</div>
+                        <div class="i-type">Buy zone $121 - $125 if you plan to buy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="chart-group">
+    <div class="font-bold text-lg mb-4 mt-4 w-full">
+        <h3>Index movement map:</h3>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="container m-auto  grid grid-cols-1 gap-4 md:grid-cols-3">
+            <div class="flex flex-row justify-center items-center">
+                <apx-chart [series]="dowBarChart.series" [chart]="dowBarChart.chart"
+                    [dataLabels]="dowBarChart.dataLabels" [plotOptions]="dowBarChart.plotOptions"
+                    [yaxis]="dowBarChart.yaxis" [xaxis]="dowBarChart.xaxis" [fill]="dowBarChart.fill"
+                    [title]="dowBarChart.title"></apx-chart>
+            </div>
+            <div class="flex flex-row justify-center items-center">
+                <apx-chart [series]="spBarChart.series" [chart]="spBarChart.chart" [dataLabels]="spBarChart.dataLabels"
+                    [plotOptions]="spBarChart.plotOptions" [yaxis]="spBarChart.yaxis" [xaxis]="spBarChart.xaxis"
+                    [fill]="spBarChart.fill" [title]="spBarChart.title"></apx-chart>
+            </div>
+            <div class="flex flex-row justify-center items-center">
+                <apx-chart [series]="nasdaqBarChart.series" [chart]="nasdaqBarChart.chart"
+                    [dataLabels]="nasdaqBarChart.dataLabels" [plotOptions]="nasdaqBarChart.plotOptions"
+                    [yaxis]="nasdaqBarChart.yaxis" [xaxis]="nasdaqBarChart.xaxis" [fill]="nasdaqBarChart.fill"
+                    [title]="nasdaqBarChart.title"></apx-chart>
+            </div>
+            <div class="flex flex-row justify-center items-center">
+                <apx-chart [series]="nasdaqBarChart.series" [chart]="nasdaqBarChart.chart"
+                    [dataLabels]="nasdaqBarChart.dataLabels" [plotOptions]="nasdaqBarChart.plotOptions"
+                    [yaxis]="nasdaqBarChart.yaxis" [xaxis]="nasdaqBarChart.xaxis" [fill]="nasdaqBarChart.fill"
+                    [title]="nasdaqBarChart.title"></apx-chart>
+            </div>
+            <div class="flex flex-row justify-center items-center">
+                <apx-chart [series]="nasdaqBarChart.series" [chart]="nasdaqBarChart.chart"
+                    [dataLabels]="nasdaqBarChart.dataLabels" [plotOptions]="nasdaqBarChart.plotOptions"
+                    [yaxis]="nasdaqBarChart.yaxis" [xaxis]="nasdaqBarChart.xaxis" [fill]="nasdaqBarChart.fill"
+                    [title]="nasdaqBarChart.title"></apx-chart>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="chart-group">
+
+    <div class="font-bold text-lg mb-4 mt-4 w-full">
+        <h3>Sector heat map:</h3>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="container m-auto flex flex-col gap-4 md:flex-row">
+            <div class="w-100 md:w-1/3 flex flex-row justify-center items-center">
+                <apx-chart [series]="sectorHeatMap.series" [chart]="sectorHeatMap.chart"
+                    [dataLabels]="sectorHeatMap.dataLabels" [plotOptions]="sectorHeatMap.plotOptions"
+                    [yaxis]="sectorHeatMap.yaxis" [xaxis]="sectorHeatMap.xaxis" [fill]="sectorHeatMap.fill"
+                    [title]="sectorHeatMap.title"></apx-chart>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="chart-group">
+
+    <div class="font-bold text-lg mb-4 mt-4 w-full">
+        <h3>Industry heat map:</h3>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="container m-auto flex flex-col gap-4 md:flex-row">
+            <div class="w-100 md:w-1/3 flex flex-row justify-center items-center">
+                <apx-chart [series]="industryHeatMap.series" [chart]="industryHeatMap.chart"
+                    [dataLabels]="industryHeatMap.dataLabels" [colors]="industryHeatMap.colors"
+                    [grid]="industryHeatMap.grid" [xaxis]="industryHeatMap.xaxis"
+                    [title]="industryHeatMap.title"></apx-chart>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="chart-group">
+
+    <div class="font-bold text-lg mb-4 mt-4 w-full">
+        <h3>Thematics heat map:</h3>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="container m-auto flex flex-col gap-4 md:flex-row">
+            <div class="w-100 md:w-1/3 flex flex-row justify-center items-center">
+                <apx-chart [series]="thematicHeatMap.series" [chart]="thematicHeatMap.chart"
+                    [dataLabels]="thematicHeatMap.dataLabels" [colors]="thematicHeatMap.colors"
+                    [grid]="thematicHeatMap.grid" [xaxis]="thematicHeatMap.xaxis"
+                    [title]="thematicHeatMap.title"></apx-chart>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="chart-group">
+    <div class="font-bold text-lg mb-4 mt-4 w-full">
+        <h3>Market Breadth:</h3>
+    </div>
+
+    <div class="chart-group-single-block">
+        <div class="container m-auto  grid grid-cols-1 gap-4 md:grid-cols-3">
+            <div class="flex flex-row justify-center items-center">
+                <apx-chart [series]="exchangeLevelUpdown.series" [chart]="exchangeLevelUpdown.chart"
+                    [dataLabels]="exchangeLevelUpdown.dataLabels" [plotOptions]="exchangeLevelUpdown.plotOptions"
+                    [yaxis]="exchangeLevelUpdown.yaxis" [xaxis]="exchangeLevelUpdown.xaxis"
+                    [fill]="exchangeLevelUpdown.fill" [title]="exchangeLevelUpdown.title"></apx-chart>
+            </div>
+            <div class="flex flex-row justify-center items-center">
+                <apx-chart [series]="exchangeLevelBullish.series" [chart]="exchangeLevelBullish.chart"
+                    [dataLabels]="exchangeLevelBullish.dataLabels" [plotOptions]="exchangeLevelBullish.plotOptions"
+                    [yaxis]="exchangeLevelBullish.yaxis" [xaxis]="exchangeLevelBullish.xaxis"
+                    [fill]="exchangeLevelBullish.fill" [title]="exchangeLevelBullish.title"></apx-chart>
+            </div>
+            <div class="flex flex-row justify-center items-center">
+                <apx-chart [series]="exchangeLevelBearish.series" [chart]="exchangeLevelBearish.chart"
+                    [dataLabels]="exchangeLevelBearish.dataLabels" [plotOptions]="exchangeLevelBearish.plotOptions"
+                    [yaxis]="exchangeLevelBearish.yaxis" [xaxis]="exchangeLevelBearish.xaxis"
+                    [fill]="exchangeLevelBearish.fill" [title]="exchangeLevelBearish.title"></apx-chart>
+            </div>
+            <div class="flex flex-row justify-center items-center">
+                <apx-chart [series]="exchangeLevelSma50.series" [chart]="exchangeLevelSma50.chart"
+                    [dataLabels]="exchangeLevelSma50.dataLabels" [plotOptions]="exchangeLevelSma50.plotOptions"
+                    [yaxis]="exchangeLevelSma50.yaxis" [xaxis]="exchangeLevelSma50.xaxis"
+                    [fill]="exchangeLevelSma50.fill" [title]="exchangeLevelSma50.title"></apx-chart>
+            </div>
+            <div class="flex flex-row justify-center items-center">
+                <apx-chart [series]="exchangeLevelSma200.series" [chart]="exchangeLevelSma200.chart"
+                    [dataLabels]="exchangeLevelSma200.dataLabels" [plotOptions]="exchangeLevelSma200.plotOptions"
+                    [yaxis]="exchangeLevelSma200.yaxis" [xaxis]="exchangeLevelSma200.xaxis"
+                    [fill]="exchangeLevelSma200.fill" [title]="exchangeLevelSma200.title"></apx-chart>
+            </div>
+        </div>
+    </div>
+</div>

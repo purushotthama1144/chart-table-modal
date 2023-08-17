@@ -1,0 +1,299 @@
+<div class="table-group">
+    <h2>Top 25 Bullish movers in Index components:</h2>
+    <div class="table-wrap">
+        <!-- <mat-form-field appearance="outline">
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+        </mat-form-field> -->
+        <table mat-table [dataSource]="top25Bullish">
+            <!-- Position Column -->
+            <ng-container matColumnDef="number">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> No. </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="name">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{element.name}} </td>
+            </ng-container>
+            <!--Column -->
+            <ng-container matColumnDef="symbol">
+                <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Symbol </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="sector">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Sector </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.sector}}</td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="closeprice">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Close Price </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.closeprice}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="gain">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> % Gain</th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.gain}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="healthscore">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Health Score</th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.healthscore}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[25 , 50 , 100 , 1000]" #top25BullishPaginator></mat-paginator>
+    </div>
+</div>
+
+<div class="table-group">
+    <h2>Bottom 25 Bearish movers in Index components:</h2>
+
+    <div class="table-wrap">
+
+        <table mat-table [dataSource]="bottom25Bullish">
+            <!-- Position Column -->
+            <ng-container matColumnDef="number">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> No. </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="name">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{element.name}} </td>
+            </ng-container>
+            <!--Column -->
+            <ng-container matColumnDef="symbol">
+                <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Symbol </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="sector">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Sector </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.sector}}</td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="closeprice">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Close Price </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.closeprice}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="gain">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> % Gain</th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.gain}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="healthscore">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Health Score</th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.healthscore}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[25 , 50 , 100 , 1000]" #bottom25BullishPaginator></mat-paginator>
+    </div>
+</div>
+
+<div class="table-group">
+    <h2>Top 25 Bullish Outliers:</h2>
+
+    <div class="table-wrap">
+
+        <table mat-table [dataSource]="top25Bearish">
+            <!-- Position Column -->
+            <ng-container matColumnDef="number">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> No. </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="name">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{element.name}} </td>
+            </ng-container>
+            <!--Column -->
+            <ng-container matColumnDef="symbol">
+                <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Symbol </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="sector">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Sector </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.sector}}</td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="closeprice">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Close Price </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.closeprice}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="gain">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> % Gain</th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.gain}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="healthscore">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Health Score</th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.healthscore}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[25 , 50 , 100 , 1000]" #top25BearishPaginator></mat-paginator>
+    </div>
+</div>
+
+<div class="table-group">
+    <h2>Bottom 25 Bearish Outliers:</h2>
+
+    <div class="table-wrap">
+
+        <table mat-table [dataSource]="bottom25Bearish">
+            <!-- Position Column -->
+            <ng-container matColumnDef="number">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> No. </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="name">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{element.name}} </td>
+            </ng-container>
+            <!--Column -->
+            <ng-container matColumnDef="symbol">
+                <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Symbol </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="sector">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Sector </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.sector}}</td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="closeprice">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Close Price </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.closeprice}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="gain">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> % Gain</th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.gain}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="healthscore">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Health Score</th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.healthscore}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[25 , 50 , 100 , 1000]" #bottom25BearishPaginator></mat-paginator>
+    </div>
+</div>
+
+<div class="table-group">
+    <h2>Top 10 Bullish Opportunities:</h2>
+
+    <div class="table-wrap">
+        <table mat-table [dataSource]="top10Bullish">
+            <!-- Position Column -->
+            <ng-container matColumnDef="number">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> No. </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="name">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{element.name}} </td>
+            </ng-container>
+            <!--Column -->
+            <ng-container matColumnDef="symbol">
+                <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Symbol </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="sector">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Sector </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.sector}}</td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="closeprice">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Close Price </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.closeprice}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="gain">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> % Gain</th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.gain}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="healthscore">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Health Score</th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.healthscore}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[25 , 50 , 100 , 1000]" #top10BullishPaginator></mat-paginator>
+    </div>
+</div>
+
+<div class="table-group">
+    <h2>Bottom 10 Bearish Opportunities:</h2>
+
+    <div class="table-wrap">
+        <table mat-table [dataSource]="bottom10Bearish">
+            <!-- Position Column -->
+            <ng-container matColumnDef="number">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> No. </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="name">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{element.name}} </td>
+            </ng-container>
+            <!--Column -->
+            <ng-container matColumnDef="symbol">
+                <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Symbol </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="sector">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Sector </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.sector}}</td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="closeprice">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Close Price </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.closeprice}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="gain">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> % Gain</th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.gain}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="healthscore">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Health Score</th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.healthscore}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[25 , 50 , 100 , 1000]" #bottom10BearishPaginator></mat-paginator>
+    </div>
+</div>

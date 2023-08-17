@@ -1,0 +1,51 @@
+.block_item {
+    font-size: 14px;
+    text-align: center;
+}
+
+.i-name {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.text-contnt-block {
+    padding: 10px;
+    min-height: 200px;
+}
+
+.i-type {
+    margin-bottom: 5px;
+    /* color: #3d3b3b; */
+}
+
+.uppercase-text .i-name {
+    text-transform: uppercase;
+}
+
+.block_item {
+    min-height: 47px;
+    /* color: #938c8c; */
+}
+
+h3,
+h4 {
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+
+h4 {
+    font-weight: 500;
+}
+
+.chart-group,
+.chart-group-single-block {
+    margin: 1rem 0;
+}
+
+p {
+    font-size: 16px;
+}
+
+/* .apexcharts-toolbar {
+    display: none !important;
+} */
