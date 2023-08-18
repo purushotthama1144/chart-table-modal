@@ -26,6 +26,8 @@ export class PopupTableComponent implements OnInit , AfterViewInit {
   bottom25Bearish: MatTableDataSource<any> = new MatTableDataSource<any>();
   top10Bullish: MatTableDataSource<any> = new MatTableDataSource<any>();
   bottom10Bearish: MatTableDataSource<any> = new MatTableDataSource<any>();
+  PotentialBullish: MatTableDataSource<any> = new MatTableDataSource<any>();
+  potentialBearish: MatTableDataSource<any> = new MatTableDataSource<any>();
 
   ngOnInit(): void {
     this.refreshDataSource();
@@ -40,7 +42,8 @@ export class PopupTableComponent implements OnInit , AfterViewInit {
     this.bottom25Bearish = new MatTableDataSource(tableData);
     this.top10Bullish = new MatTableDataSource(tableData);
     this.bottom10Bearish = new MatTableDataSource(tableData);
-    
+    this.PotentialBullish = new MatTableDataSource(tableData);
+    this.potentialBearish = new MatTableDataSource(tableData);
   }
 
   // applyFilter(event: Event) {

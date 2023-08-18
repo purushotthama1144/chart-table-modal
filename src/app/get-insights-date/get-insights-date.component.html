@@ -1,0 +1,23 @@
+<div class="insights-title">
+    <h2 mat-dialog-title>Get Insights</h2>
+</div>
+<div class="insights-content">
+    <mat-dialog-content>
+      
+        <p class="mb-4">Our Daily Insights will help you understand what is going on the stock market. It provides details related to index performance, sector performance and market breadth along with a Top-25 classification of stocks based on the analysis of 10,000+ stocks listedin the US Stock Markets.</p>
+        <p class="mb-4">You can use the insights to review your current holdings and to evaluate potential opportunities for investments.</p>
+        
+        <div class="select-date">
+            <mat-form-field appearance="outline">
+                <input  placeholder="Select Date" #ref="ngModel" matInput [matDatepicker]="picker" [required]="true" [(ngModel)]="selectedDate">
+                <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker (closed)="onClosed(ref)" #picker></mat-datepicker>
+                <mat-error *ngIf="ref.touched && ref.invalid">Please select the Date</mat-error>   
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-button mat-stroked-button color="primary" [mat-dialog-close]="true" (click)="openPopupChart()">Get insights</button>
+    <button mat-button mat-stroked-button color="primary" mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

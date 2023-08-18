@@ -21,6 +21,11 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { PopupChartComponent } from './popup-chart/popup-chart.component';
 import { PopupTableComponent } from './popup-table/popup-table.component';
 import { DialogDataComponent } from './dialog-data/dialog-data.component';
+import { GetInsightsDateComponent } from './get-insights-date/get-insights-date.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,12 +34,14 @@ import { DialogDataComponent } from './dialog-data/dialog-data.component';
     TableComponent,
     PopupChartComponent,
     PopupTableComponent,
-    DialogDataComponent
+    DialogDataComponent,
+    GetInsightsDateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatTableModule,
     MatExpansionModule,
     MatIconModule,
@@ -48,9 +55,11 @@ import { DialogDataComponent } from './dialog-data/dialog-data.component';
     MatCardModule,
     NgApexchartsModule,
     NgGanttEditorModule,
+    MatDatepickerModule,
+    MatNativeDateModule
     
   ],
-  providers: [ChecklistDatabase],
+  providers: [ChecklistDatabase , DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

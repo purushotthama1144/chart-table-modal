@@ -1,9 +1,7 @@
 <div class="table-1">
     <div class="mb-4 w-full">
         <h3 class="font-bold text-base">Top 25 Bullish movers in Index components:</h3>
-        <p class="text-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-            of type and scrambled it to make a type specimen book.</p>
+        <p class="text-base">The following tables provides a list of top 25 gainers, within the Index components, during this period.</p>
     </div>
     
     <div class="table-group">
@@ -56,9 +54,7 @@
 <div class="table-2">
     <div class="mb-4 mt-4 w-full">
         <h3 class="font-bold text-base">Bottom 25 Bearish movers in Index components:</h3>
-        <p class="text-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-            of type and scrambled it to make a type specimen book.</p>
+        <p class="text-base">The following tables provides a list of top 25 losers, within the Index components, during this period.</p>
     </div>
     
     <div class="table-group">
@@ -112,9 +108,7 @@
 <div class="table-3">
     <div class="mb-4 mt-4 w-full">
         <h3 class="font-bold text-base">Top 25 Bullish Outliers:</h3>
-        <p class="text-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-            of type and scrambled it to make a type specimen book.</p>
+        <p class="text-base">The following tables provides a list of top 25 outsized gainers, across the market, during this period.</p>
     </div>
     
     <div class="table-group">
@@ -168,9 +162,7 @@
 <div class="table-4">
     <div class="mb-4 mt-4 w-full">
         <h3 class="font-bold text-base">Bottom 25 Bearish Outliers:</h3>
-        <p class="text-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-            of type and scrambled it to make a type specimen book.</p>
+        <p class="text-base">The following tables provides a list of top 25 outsized losers, across the market, during this period.</p>
     </div>
     
     <div class="table-group">
@@ -224,9 +216,7 @@
 <div class="table-5">
     <div class="mb-4 mt-4 w-full">
         <h3 class="font-bold text-base">Top 10 Bullish Opportunities:</h3>
-        <p class="text-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-            of type and scrambled it to make a type specimen book.</p>
+        <p class="text-base">The following tables provides a list of top 10 potential Long opportunities, across the market, based on their analysis, during this period.</p>
     </div>
     
     <div class="table-group">
@@ -276,17 +266,121 @@
     </div>
 </div>
 
-<div class="table-7">
+<div class="table-6">
     <div class="mb-4 mt-4 w-full">
         <h3 class="font-bold text-base">Bottom 10 Bearish Opportunities:</h3>
-        <p class="text-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-            of type and scrambled it to make a type specimen book.</p>
+        <p class="text-base">The following tables provides a list of top 10 potential Short opportunities, across the market, based on their analysis, during this period.</p>
     </div>
     
     <div class="table-group">
         <div class="table-wrap">
             <table mat-table [dataSource]="bottom10Bearish">
+                <!-- Position Column -->
+                <ng-container matColumnDef="number">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> No. </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="name">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Name </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{element.name}} </td>
+                </ng-container>
+                <!--Column -->
+                <ng-container matColumnDef="symbol">
+                    <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Symbol </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="sector">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Sector </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.sector}}</td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="closeprice">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Close Price </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.closeprice}} </td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="gain">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> % Gain</th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.gain}} </td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="healthscore">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Health Score</th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.healthscore}} </td>
+                </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="table-7">
+    <div class="mb-4 mt-4 w-full">
+        <h3 class="font-bold text-base">Potential Bullish breakouts:</h3>
+        <p class="text-base">The following tables provides a list of top 10 potential Breakout opportunities, across the market, based on their analysis, during this period.</p>
+    </div>
+    
+    <div class="table-group">
+        <div class="table-wrap">
+            <table mat-table [dataSource]="PotentialBullish">
+                <!-- Position Column -->
+                <ng-container matColumnDef="number">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> No. </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="name">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Name </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{element.name}} </td>
+                </ng-container>
+                <!--Column -->
+                <ng-container matColumnDef="symbol">
+                    <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Symbol </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="sector">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Sector </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.sector}}</td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="closeprice">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Close Price </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.closeprice}} </td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="gain">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> % Gain</th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.gain}} </td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="healthscore">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Health Score</th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.healthscore}} </td>
+                </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="table-8">
+    <div class="mb-4 mt-4 w-full">
+        <h3 class="font-bold text-base">Potential Bearish pullbacks:</h3>
+        <p class="text-base">The following tables provides a list of top 10 potential Pullback possibilities, across the market, based on their analysis, during this period.</p>
+    </div>
+    
+    <div class="table-group">
+        <div class="table-wrap">
+            <table mat-table [dataSource]="potentialBearish">
                 <!-- Position Column -->
                 <ng-container matColumnDef="number">
                     <th class="rTableHead" mat-header-cell *matHeaderCellDef> No. </th>
