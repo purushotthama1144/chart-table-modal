@@ -19,7 +19,7 @@ export class GetInsightsDateComponent {
   }
 
   openPopupChart() {
-    this.selectedDate = this.datePipe.transform(this.selectedDate, 'shortDate');
+    this.selectedDate = this.datePipe.transform(this.selectedDate, 'mediumDate');
     if (this.selectedDate == undefined) {
       alert("Date is required");
     } else {
