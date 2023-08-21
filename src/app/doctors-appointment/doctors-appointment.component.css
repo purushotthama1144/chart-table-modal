@@ -1,0 +1,5 @@
+.mat-mdc-form-field {
+    width: calc(100% - 40px);
+    margin: auto;
+    justify-content: center;
+}

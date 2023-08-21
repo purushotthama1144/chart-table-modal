@@ -26,6 +26,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { DoctorsAppointmentComponent } from './doctors-appointment/doctors-appointment.component';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { DatePipe } from '@angular/common';
     PopupChartComponent,
     PopupTableComponent,
     DialogDataComponent,
-    GetInsightsDateComponent
+    GetInsightsDateComponent,
+    DoctorsAppointmentComponent
   ],
   imports: [
     BrowserModule,
@@ -56,9 +60,10 @@ import { DatePipe } from '@angular/common';
     NgApexchartsModule,
     NgGanttEditorModule,
     MatDatepickerModule,
-    MatNativeDateModule
-    
+    MatNativeDateModule,
+    MatSelectModule    
   ],
+  
   providers: [ChecklistDatabase , DatePipe],
   bootstrap: [AppComponent]
 })
