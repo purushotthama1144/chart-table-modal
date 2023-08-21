@@ -20,9 +20,7 @@ export class GetInsightsDateComponent {
 
   openPopupChart() {
     this.selectedDate = this.datePipe.transform(this.selectedDate, 'mediumDate');
-    if (this.selectedDate == undefined) {
-      alert("Date is required");
-    } else {
+    if ((this.selectedDate != undefined) || (this.selectedDate != "")) {
       this.dialog.open(DialogDataComponent, {
         data: {
           data: this.selectedDate,
@@ -30,6 +28,7 @@ export class GetInsightsDateComponent {
         disableClose: false,
         width: '70%',
       });
+    } else {
     }
   }
 }
