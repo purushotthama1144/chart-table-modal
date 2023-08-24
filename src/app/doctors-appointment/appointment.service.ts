@@ -12,6 +12,9 @@ interface BranchesData {
   date: {
     [doctor: string]: string[];
   };
+  day: {
+    [time:string]:any[];
+  }
 }
 
 const dummyData: BranchesData = {
@@ -42,7 +45,12 @@ const dummyData: BranchesData = {
     "Doctor J": [],
     "Doctor K": ['22-08-2023', '24-08-2023', '25-08-2023', '26-08-2023'],
     "Doctor L": ['22-08-2023', '24-08-2023', '25-08-2023', '26-08-2023'],
-},
+  },
+  day: {
+    '21-08-2023': ['9-10', '10-11', '11-12', '12-1'],
+    '23-08-2023': ['9-10', '10-11', '11-12', '3-4'],
+    '24-08-2023': ['11-12', '10-11', '1-2', '3-4'],
+  }
 };
 
 @Injectable({

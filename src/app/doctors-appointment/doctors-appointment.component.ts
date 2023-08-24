@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AppointmentService } from './appointment.service';
 import { MatCalendarCellClassFunction, MatDatepickerInputEvent } from '@angular/material/datepicker';
 import * as moment from 'moment';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-doctors-appointment',
@@ -9,7 +10,7 @@ import * as moment from 'moment';
   styleUrls: ['./doctors-appointment.component.css']
 })
 export class DoctorsAppointmentComponent implements OnInit {
-apiData:any;
+  apiData:any;
   departments: string[] = [];
   doctors: string[] = [];
   availableSlots: string[] = [];
@@ -20,8 +21,9 @@ apiData:any;
   availableDates: string[] = [];
   selectedSlot:any;
   isCalendarVisible = false;
+  dateEvent:any;
 
-  constructor(private appointmentService: AppointmentService){}
+  constructor(private appointmentService: AppointmentService, private datePipe: DatePipe){}
 
   ngOnInit(): void {
     this.fetchData()
@@ -68,8 +70,13 @@ apiData:any;
     return this.availableDates.includes(formattedDate);
   };
 
-  selectDate(selectedDate: any) {
-    console.log('Selected Date:', selectedDate);
+  onDateSelected(selectedDate: any) {
+    this.dateEvent = moment(selectedDate.value).format('DD-MM-YYYY');
+    // this.dateEvent = this.datePipe.transform(selectedDate.value, 'short')
+    console.log(this.dateEvent)
+    console.log(this.apiData.day)
+    this.availableSlots = this.apiData.day[this.dateEvent] || [];
+    console.log('Selected Date:', this.availableSlots);
   }
  
   bookAppointment() {
