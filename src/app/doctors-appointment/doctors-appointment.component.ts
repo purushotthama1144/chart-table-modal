@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppointmentService } from './appointment.service';
+import { MatCalendarCellClassFunction, MatDatepickerInputEvent } from '@angular/material/datepicker';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-doctors-appointment',
@@ -15,9 +17,9 @@ apiData:any;
   selectedDepartment: string = '';
   selectedDoctor: string = "";
   selectedDate: Date | null = null;
+  availableDates: string[] = [];
   selectedSlot:any;
-  @Input() min: any;
-  tomorrow = new Date();
+  isCalendarVisible = false;
 
   constructor(private appointmentService: AppointmentService){}
 
@@ -47,27 +49,27 @@ apiData:any;
 
   onDoctorSelection() {
     if (this.selectedDoctor) {
-      this.availableSlots = this.apiData.date[this.selectedDoctor] || [];
+      this.availableDates = this.apiData.date[this.selectedDoctor] || [];
       console.log(this.availableSlots)
     } else {
       this.availableSlots = [];
     }
   }
-  isDateEnabled = (date: Date) => {
-    const formattedDate = this.formatDate(date);
-    return this.availableSlots.includes(formattedDate);
+
+  toggleCalendarVisibility() {
+    this.isCalendarVisible = !this.isCalendarVisible;
+  }
+
+  isDateEnabled = (date: Date | null): boolean => {
+    if (!date) {
+      return false;
+    }
+    const formattedDate = moment(date).format('DD-MM-YYYY');
+    return this.availableDates.includes(formattedDate);
   };
 
-  formatDate(date: Date): string {
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1; // Months are zero-based
-    const day = date.getDate();
-
-    // Ensure leading zeros
-    const formattedMonth = month < 10 ? `0${month}` : `${month}`;
-    const formattedDay = day < 10 ? `0${day}` : `${day}`;
-
-    return `${formattedMonth}-${formattedDay}-${year}`;
+  selectDate(selectedDate: any) {
+    console.log('Selected Date:', selectedDate);
   }
  
   bookAppointment() {
@@ -79,5 +81,4 @@ apiData:any;
       slot: this.selectedSlot,
     });
   }
-
 }

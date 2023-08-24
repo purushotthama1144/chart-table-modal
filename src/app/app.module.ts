@@ -28,6 +28,9 @@ import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { DoctorsAppointmentComponent } from './doctors-appointment/doctors-appointment.component';
 import {MatSelectModule} from '@angular/material/select';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
 
 
 @NgModule({
@@ -61,7 +64,8 @@ import {MatSelectModule} from '@angular/material/select';
     NgGanttEditorModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule    
+    MatSelectModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })    
   ],
   
   providers: [ChecklistDatabase , DatePipe],

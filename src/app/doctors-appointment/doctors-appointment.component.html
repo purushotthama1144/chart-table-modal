@@ -1,48 +1,67 @@
-<mat-dialog-content class="mat-typography">
+<mat-dialog-content>
     <button mat-button mat-dialog-close>Cancel</button>
     <div class="container m-auto flex flex-wrap items-center">
         <div class="w-100 md:w-1/2 text-center">
             <mat-form-field>
-              <mat-label>Branches:</mat-label>
-              <mat-select [(ngModel)]="selectedBranch" (selectionChange)="onBranchSelection()">
-                <mat-option *ngFor="let branch of apiData.branches" [value]="branch">{{ branch }}</mat-option>
-              </mat-select>
+                <mat-label>Branches:</mat-label>
+                <mat-select [(ngModel)]="selectedBranch" (selectionChange)="onBranchSelection()">
+                    <mat-option *ngFor="let branch of apiData.branches" [value]="branch">{{ branch }}</mat-option>
+                </mat-select>
             </mat-form-field>
         </div>
         <div class="w-100 md:w-1/2 text-center">
             <mat-form-field>
-              <mat-label>Department:</mat-label>
-              <mat-select [(ngModel)]="selectedDepartment" (selectionChange)="onDepartmentSelection()">
-                <mat-option *ngFor="let department of departments" [value]="department">{{ department }}</mat-option>
-              </mat-select>
+                <mat-label>Department:</mat-label>
+                <mat-select [(ngModel)]="selectedDepartment" (selectionChange)="onDepartmentSelection()">
+                    <mat-option *ngFor="let department of departments" [value]="department">{{ department
+                        }}</mat-option>
+                </mat-select>
             </mat-form-field>
         </div>
         <div class="w-100 md:w-1/2 text-center">
             <mat-form-field>
                 <mat-label>Doctor:</mat-label>
                 <mat-select [(ngModel)]="selectedDoctor" (selectionChange)="onDoctorSelection()">
-                  <mat-option *ngFor="let doctor of doctors" [value]="doctor">{{ doctor }}</mat-option>
+                    <mat-option *ngFor="let doctor of doctors" [value]="doctor">{{ doctor }}</mat-option>
                 </mat-select>
-              </mat-form-field>
+            </mat-form-field>
         </div>
-        <div class="w-100 md:w-1/2 text-center">
-            <mat-form-field>
+        <div class="w-100 md:w-1/2 text-center position-relative">
+
+            <mat-form-field style="background-color: #fff;">
                 <mat-label>Date</mat-label>
-                <input matInput [matDatepicker]="picker" readonly [(ngModel)]="selectedDate" [min]="this.availableSlots[0]">
-                <mat-hint>MM/DD/YYYY</mat-hint>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate"
+                    [matDatepickerFilter]="isDateEnabled">
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker ></mat-datepicker>
-              </mat-form-field>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+
+
+            <!-- <mat-card>
+                <mat-calendar [dateClass]="dateClass"></mat-calendar>
+              </mat-card> -->
+            <!-- <div class="position-relative calender">
+                <input type="text" readonly class="">
+                <div class="icon">
+                    <button mat-icon-button (click)="toggleCalendarVisibility()">
+                        <mat-icon>calendar_today</mat-icon>
+                    </button>
+                </div>
+            </div> -->
+
+            <!-- <mat-calendar *ngIf="isCalendarVisible" [dateClass]="dateClass" (selectedChange)="selectDate($event)" ></mat-calendar> -->
+
         </div>
         <div class="w-100 md:w-1/2 text-center">
             <mat-form-field>
                 <mat-label>Appointment Slot:</mat-label>
                 <mat-select [(ngModel)]="selectedSlot">
-                  <mat-option *ngFor="let slot of availableSlots" [value]="slot">{{ slot }}</mat-option>
+                    <mat-option *ngFor="let slot of availableSlots" [value]="slot">{{ slot }}</mat-option>
                 </mat-select>
-              </mat-form-field>
+            </mat-form-field>
         </div>
     </div>
     <button (click)="bookAppointment()" [disabled]="!selectedDoctor || !selectedDate">Book Appointment</button>
-      
+
 </mat-dialog-content>
