@@ -48,7 +48,60 @@
     </div>
 
     <div class="action-buttton-block text-right">
+        <button mat-dialog-close class="btn close-button">Close</button>
         <button (click)="bookAppointment()" class="btn" [disabled]="!selectedDoctor || !selectedDate">Save</button>
     </div>
+
+    <div class="appointment-details">
+        <h3 class="title">APPOINTENT DETAILS</h3>
+    </div>
+    <div class="appointment-table">
+        <div class="table-wrap">
+            <table mat-table [dataSource]="dataSource">
+                <!-- Position Column -->
+                <ng-container matColumnDef="department">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Department </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{element.department}} </td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="doctorName">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Doctor Name </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{element.doctorName}} </td>
+                </ng-container>
+                <!--Column -->
+                <ng-container matColumnDef="date">
+                    <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Date </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.date}} </td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="slotTime">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Slot Time </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.slotTime}}</td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="patientName">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Patient Name </th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.patientName}} </td>
+                </ng-container>
+                 <!-- Column -->
+                 <ng-container matColumnDef="patientContact">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef>Patient Contact</th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.patientContact}} </td>
+                </ng-container>
+                <!-- Column -->
+                <ng-container matColumnDef="patientAge">
+                    <th class="rTableHead" mat-header-cell *matHeaderCellDef> Patient Age</th>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.patientAge}} </td>
+                </ng-container>
+               
+    
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                
+            </table>
+            <mat-paginator [pageSizeOptions]="[5 , 10 , 20 , 50]"></mat-paginator>
+        </div>
+    </div>
+
 
 </mat-dialog-content>

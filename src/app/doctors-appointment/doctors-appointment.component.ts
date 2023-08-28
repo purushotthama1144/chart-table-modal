@@ -1,15 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AppointmentService } from './appointment.service';
 import { MatCalendarCellClassFunction, MatDatepickerInputEvent } from '@angular/material/datepicker';
 import * as moment from 'moment';
 import { DatePipe } from '@angular/common';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-doctors-appointment',
   templateUrl: './doctors-appointment.component.html',
   styleUrls: ['./doctors-appointment.component.css']
 })
-export class DoctorsAppointmentComponent implements OnInit {
+export class DoctorsAppointmentComponent implements OnInit, AfterViewInit  {
   apiData:any;
   departments: string[] = [];
   doctors: string[] = [];
@@ -22,11 +24,30 @@ export class DoctorsAppointmentComponent implements OnInit {
   selectedSlot:any;
   isCalendarVisible = false;
   dateEvent:any;
+  appointmentData:any;
+
+  displayedColumns: string[] = [
+    'department',
+    'doctorName',
+    'date',
+    'slotTime',
+    'patientName',
+    'patientContact',
+    'patientAge',
+  ];
+
+  dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private appointmentService: AppointmentService, private datePipe: DatePipe){}
 
   ngOnInit(): void {
     this.fetchData()
+    this.fetchAppointment()
+    this.refreshDataSource()
+  }
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
   fetchData(){
@@ -34,6 +55,19 @@ export class DoctorsAppointmentComponent implements OnInit {
       console.log(data)
       this.apiData = data
     })
+  }
+
+  fetchAppointment() {
+    this.appointmentService.getAppointmenntDetails().subscribe((data)=> {
+      console.log(data)
+      this.appointmentData = data;
+
+    })
+  }
+
+  refreshDataSource(){
+    this.dataSource = new MatTableDataSource(this.appointmentData);
+    this.dataSource.paginator = this.paginator;
   }
 
   onBranchSelection() {

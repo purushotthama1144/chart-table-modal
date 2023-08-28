@@ -13,12 +13,13 @@ export class AppComponent implements OnInit{
   constructor(public dialog: MatDialog,) {}
 
   ngOnInit(): void {
+    this.openModal()
   }
 
   openModal() {
     this.dialog.open(DoctorsAppointmentComponent, {
       disableClose: true,
-      width: '50%',
+      width: '60%',
       autoFocus: false, 
       restoreFocus: false,
     

@@ -43,3 +43,16 @@
     padding: 5px 10px;
     border-radius: 20px;
 }
+
+.close-button {
+    background-color: aquamarine;
+    margin-right: 10px;
+}
+
+.mat-mdc-header-row {
+    background-color: #242058;
+}
+
+.mdc-data-table__header-cell {
+    color: #fff;
+}
