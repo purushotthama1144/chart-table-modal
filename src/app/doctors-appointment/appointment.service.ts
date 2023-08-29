@@ -24,12 +24,8 @@ export class AppointmentService {
     return this.http.post(`${this.baseUrl}micro-doctors/list/` , data) 
   }
 
-  getDates(data:any){
-    return this.http.post(`${this.baseUrl}micro-appointment-slot/list/` , data)
-  }
-
-  getSlots(data:any){
-    return this.http.post(`${this.baseUrl}micro-appointment-slot/list/` , data)
+  getDateSlot(data:any){
+    return this.http.post(`${this.baseUrl}micro-appointment-slot/available-date-and-time-slot-list/` , data)
   }
 
 }

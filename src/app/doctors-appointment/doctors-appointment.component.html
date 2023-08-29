@@ -39,7 +39,7 @@
             <mat-form-field>
                 <mat-label>Appointment Slot:</mat-label>
                 <mat-select [(ngModel)]="selectedSlot">
-                    <mat-option *ngFor="let slot of availableSlots" [value]="slot">{{ slot }}</mat-option>
+                    <mat-option *ngFor="let slot of availableSlots" [value]="slot.timeSlotId">{{ slot.timeSlot }}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -47,7 +47,7 @@
 
     <div class="action-buttton-block text-right">
         <button mat-dialog-close class="btn close-button">Close</button>
-        <button (click)="bookAppointment()" class="btn" [disabled]="!selectedDoctor || !selectedDate">Save</button>
+        <button (click)="bookAppointment(selectedBranch, selectedDoctor, selectedDate, selectedSlot , selectedDepartment)" class="btn" [disabled]="!selectedDoctor || !selectedDate">Save</button>
     </div>
 
     <div class="appointment-details">
