@@ -28,6 +28,8 @@ import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { DoctorsAppointmentComponent } from './doctors-appointment/doctors-appointment.component';
 import {MatSelectModule} from '@angular/material/select';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptor } from './doctors-appointment/token-interceptor';
 
 @NgModule({
   declarations: [
@@ -60,10 +62,18 @@ import {MatSelectModule} from '@angular/material/select';
     NgGanttEditorModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule,   
+    MatSelectModule,
+    HttpClientModule   
   ],
   
-  providers: [ChecklistDatabase , DatePipe],
+  providers: [
+    ChecklistDatabase , DatePipe , 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

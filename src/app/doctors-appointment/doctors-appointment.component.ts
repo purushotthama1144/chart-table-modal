@@ -14,17 +14,24 @@ import { MatPaginator } from '@angular/material/paginator';
 export class DoctorsAppointmentComponent implements OnInit, AfterViewInit  {
   apiData:any;
   departments: string[] = [];
-  doctors: string[] = [];
   availableSlots: string[] = [];
-  selectedBranch: string = '';
-  selectedDepartment: string = '';
-  selectedDoctor: string = "";
+  selectedBranch: any;
+  branchData:any;
+  selectedBranchData:any;
+  departmentData:any;
+  selectedDepartment: any;
+  selectedDepartmentData: any;
+  selectedDoctor: any;
+  doctorsData:any;
+  selectedDoctorData:any;
   selectedDate: Date | null = null;
-  availableDates: string[] = [];
-  selectedSlot:any;
+  dateData = ['2023-08-29', '2023-08-30', '2023-08-31', '2023-09-01'];
+  selectedDateData:any;
   isCalendarVisible = false;
-  dateEvent:any;
+  
+  selectedSlot:any;
   appointmentData:any;
+  dateEvent:any;
 
   displayedColumns: string[] = [
     'department',
@@ -42,27 +49,11 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit  {
   constructor(private appointmentService: AppointmentService, private datePipe: DatePipe){}
 
   ngOnInit(): void {
-    this.fetchData()
-    this.fetchAppointment()
-    this.refreshDataSource()
+    this.fetchBranchDetails()
   }
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-  }
-
-  fetchData(){
-    this.appointmentService.getDummyData().subscribe((data) => {
-      console.log(data)
-      this.apiData = data
-    })
-  }
-
-  fetchAppointment() {
-    this.appointmentService.getAppointmenntDetails().subscribe((data)=> {
-      console.log(data)
-      this.appointmentData = data;
-
-    })
   }
 
   refreshDataSource(){
@@ -70,26 +61,76 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit  {
     this.dataSource.paginator = this.paginator;
   }
 
+  fetchBranchDetails() {
+    const payload = {
+      tenant:1
+    }
+    
+    this.appointmentService.getBranch(payload).subscribe((data)=> {
+      if(data){
+        console.log(data.results)
+        this.branchData = data.results;
+      }
+    })
+  }
+
   onBranchSelection() {
-    this.departments = this.apiData.departments[this.selectedBranch] || [];
-    console.log(this.departments)
-    this.doctors = [];
-    this.availableSlots = [];
+    this.selectedBranchData = this.branchData.find((val:any) => val.id == this.selectedBranch);
+    this.fetchDepartment();
+  }
+
+  fetchDepartment() {
+    const payload = {
+      branch: this.selectedBranchData.id, 
+      tenant: this.selectedBranchData.organization
+    }
+
+    this.appointmentService.getDepartment(payload).subscribe((data)=> {
+      if(data){
+        console.log(data.results)
+        this.departmentData = data.results;
+      }
+    })
   }
 
   onDepartmentSelection() {
-    this.doctors = this.apiData.doctors[this.selectedDepartment] || [];
-    console.log(this.doctors)
-    this.availableSlots = [];
+    this.selectedDepartmentData = this.departmentData.find((val:any) => val.id == this.selectedDepartment)
+    console.log(this.selectedDepartmentData)
+    this.fetchDoctors();
+  }
+
+  fetchDoctors() {
+    const payload = {
+      department: this.selectedDepartmentData.id, 
+      tenant: this.selectedDepartmentData.organization,
+      branch: this.selectedDepartmentData.branch
+    }
+    this.appointmentService.getDoctors(payload).subscribe((data)=> {
+      if(data){
+        console.log(data.results)
+        this.doctorsData = data.results;
+      }
+    })
   }
 
   onDoctorSelection() {
-    if (this.selectedDoctor) {
-      this.availableDates = this.apiData.date[this.selectedDoctor] || [];
-      console.log(this.availableSlots)
-    } else {
-      this.availableSlots = [];
+    this.selectedDoctorData = this.doctorsData.find((doctorData:any) => doctorData.doctor_detail.doctor_id === this.selectedDoctor);
+    console.log(this.selectedDoctorData)
+    // this.fetchDates()
+  }
+
+  fetchDates() {
+    const payload = {
+      department: this.selectedDepartmentData.id, 
+      tenant: this.selectedDepartmentData.organization,
+      branch: this.selectedDepartmentData.branch,
+      doctor: this.selectedDoctorData.doctor_id
     }
+    this.appointmentService.getDates(payload).subscribe((data)=> {
+      if(data){
+        console.log(data)
+      }
+    })
   }
 
   toggleCalendarVisibility() {
@@ -100,26 +141,38 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit  {
     if (!date) {
       return false;
     }
-    const formattedDate = moment(date).format('DD-MM-YYYY');
-    return this.availableDates.includes(formattedDate);
+    const formattedDate = moment(date).format('YYYY-MM-DD');
+    return this.dateData.includes(formattedDate);
   };
 
   onDateSelected(selectedDate: any) {
-    this.dateEvent = moment(selectedDate.value).format('DD-MM-YYYY');
-    // this.dateEvent = this.datePipe.transform(selectedDate.value, 'short')
-    console.log(this.dateEvent)
-    console.log(this.apiData.day)
-    this.availableSlots = this.apiData.day[this.dateEvent] || [];
-    console.log('Selected Date:', this.availableSlots);
+    this.dateEvent = moment(selectedDate.value).format('YYYY-MM-DD');
+    console.log(this.dateEvent);
+    this.fetchSlots();
+  }
+
+  fetchSlots() {
+    const payload = {
+      department: this.selectedDepartmentData.id, 
+      tenant: this.selectedDepartmentData.organization,
+      branch: this.selectedDepartmentData.branch,
+      doctor: this.selectedDoctorData.doctor_detail.doctor_id,
+      date_slot: this.dateEvent
+    }
+    this.appointmentService.getSlots(payload).subscribe((data)=> {
+      if(data){
+        console.log(data)
+      }
+    })
   }
  
   bookAppointment() {
-    console.log('Appointment booked:', {
-      branch: this.selectedBranch,
-      department: this.selectedDepartment,
-      doctor: this.selectedDoctor,
-      date: this.selectedDate,
-      slot: this.selectedSlot,
-    });
+  //   console.log('Appointment booked:', {
+  //     branch: this.selectedBranch,
+  //     department: this.selectedDepartment,
+  //     doctor: this.selectedDoctor,
+  //     date: this.selectedDate,
+  //     slot: this.selectedSlot,
+  //   });
   }
 }
