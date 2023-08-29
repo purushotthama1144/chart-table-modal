@@ -76,6 +76,8 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit  {
 
   onBranchSelection() {
     this.selectedBranchData = this.branchData.find((val:any) => val.id == this.selectedBranch);
+    this.selectedDepartment = "";
+    this.selectedDoctor = "";
     this.fetchDepartment();
   }
 
@@ -87,15 +89,14 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit  {
 
     this.appointmentService.getDepartment(payload).subscribe((data)=> {
       if(data){
-        console.log(data.results)
         this.departmentData = data.results;
       }
     })
   }
 
   onDepartmentSelection() {
-    this.selectedDepartmentData = this.departmentData.find((val:any) => val.id == this.selectedDepartment)
-    console.log(this.selectedDepartmentData)
+    this.selectedDepartmentData = this.departmentData.find((val:any) => val.id == this.selectedDepartment);
+    this.selectedDoctor = "";
     this.fetchDoctors();
   }
 
@@ -107,7 +108,6 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit  {
     }
     this.appointmentService.getDoctors(payload).subscribe((data)=> {
       if(data){
-        console.log(data.results)
         this.doctorsData = data.results;
       }
     })
@@ -115,6 +115,7 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit  {
 
   onDoctorSelection() {
     this.selectedDoctorData = this.doctorsData.find((doctorData:any) => doctorData.doctor_detail.doctor_id === this.selectedDoctor);
+    
     console.log(this.selectedDoctorData)
     // this.fetchDates()
   }

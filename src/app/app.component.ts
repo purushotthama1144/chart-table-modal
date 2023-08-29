@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
   openModal() {
     this.dialog.open(DoctorsAppointmentComponent, {
       disableClose: true,
-      width: '60%',
+      width: '70%',
       autoFocus: false, 
       restoreFocus: false,
     
