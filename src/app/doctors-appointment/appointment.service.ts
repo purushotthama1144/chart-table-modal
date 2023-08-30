@@ -28,4 +28,8 @@ export class AppointmentService {
     return this.http.post(`${this.baseUrl}micro-appointment-slot/available-date-and-time-slot-list/` , data)
   }
 
+
+  saveAppointment(data: any) {
+    return this.http.post(`${this.baseUrl}micro-appointment/create-appointment/` , data) 
+  }
 }

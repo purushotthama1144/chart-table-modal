@@ -25,6 +25,7 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
   selectedDate: any;
   selectedSlot:any;
   availableSlots: any[] = [];
+  dateDataNew:any;
   dateData = {
     "results": [
       {
@@ -179,6 +180,10 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
     }
     this.appointmentService.getDateSlot(payload).subscribe((data) => {
       if (data) {
+        this.dateDataNew = data;
+        console.log(this.dateDataNew)
+
+        // If api has data replace this.dateData with this.dateDataNew in the below lines and remove dateData object above
       }
     })
   }
@@ -228,7 +233,7 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
     const department = this.departmentData.find((department:any) => department.id === selectedDepartment)?.department_title;
     const date = moment(selectedDate).format('YYYY-MM-DD');
  
-    console.log("With Setails:" , selectedBranchName , department , selectedDoctorName , date , selectedSlotInfo)
+    console.log("With Details:" , selectedBranchName , department , selectedDoctorName , date , selectedSlotInfo)
     console.log('With Only ID:', {
         branch: this.selectedBranch,
         department: this.selectedDepartment,
@@ -236,5 +241,18 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
         date: this.selectedDate,
         slot: this.selectedSlot,
       });
+
+      const payload = {
+        department: this.selectedDepartmentData.id,
+        tenant: this.selectedDepartmentData.organization,
+        branch: this.selectedBranch,
+        doctor: this.selectedDoctorData.doctor_detail.doctor_id,
+        time_slot: this.selectedSlot,
+        date: date,
+        lead: 3,
+      }
+      this.appointmentService.saveAppointment(payload).subscribe((data) => {
+        console.log(data)
+      })
   }
 }
