@@ -103,7 +103,8 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.fetchBranchDetails()
-    this.fetchSlots()
+    this.fetchSlots();
+    this.fetchAppointmentList();
   }
 
   ngAfterViewInit() {
@@ -224,6 +225,12 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
         })
       )
     );
+  }
+
+  fetchAppointmentList() {
+    this.appointmentService.getAppointmentList().subscribe((data) => {
+      console.log(data)
+    })
   }
 
   bookAppointment(selectedBranch: string , selectedDoctor: string, selectedDate: Date, selectedSlot: number , selectedDepartment: string) {
