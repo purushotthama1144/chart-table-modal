@@ -60,10 +60,6 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  refreshDataSource() {
-    this.dataSource = new MatTableDataSource(this.appointmentData);
-    this.dataSource.paginator = this.paginator;
-  }
 
   fetchBranchDetails() {
     const payload = {
@@ -205,7 +201,6 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
     }
 
     this.appointmentService.saveAppointment(payload).subscribe((data:any) => {
-      
       if(data.status == 201) {
         console.log(data)
         this.snackbarService.openSnackBar("mat-primary", data.message);
@@ -219,7 +214,11 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
 
   fetchAppointmentList() {
     this.appointmentService.getAppointmentList().subscribe((data) => {
-      console.log(data)
+      this.appointmentData = data
+      this.dataSource = new MatTableDataSource(this.appointmentData.results);
+      console.log(this.dataSource)
+      this.dataSource.paginator = this.paginator;
+      console.log(this.appointmentData)
     })
   }
 }

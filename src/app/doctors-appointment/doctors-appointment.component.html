@@ -64,32 +64,32 @@
                 <!-- Column -->
                 <ng-container matColumnDef="doctorName">
                     <th class="rTableHead" mat-header-cell *matHeaderCellDef> Doctor Name </th>
-                    <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{element.doctorName}} </td>
+                    <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{element.doctor}} </td>
                 </ng-container>
                 <!--Column -->
                 <ng-container matColumnDef="date">
                     <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Date </th>
-                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.date}} </td>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.appointment_date}} </td>
                 </ng-container>
                 <!-- Column -->
                 <ng-container matColumnDef="slotTime">
                     <th class="rTableHead" mat-header-cell *matHeaderCellDef> Slot Time </th>
-                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.slotTime}}</td>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.appointment_time}}</td>
                 </ng-container>
                 <!-- Column -->
                 <ng-container matColumnDef="patientName">
                     <th class="rTableHead" mat-header-cell *matHeaderCellDef> Patient Name </th>
-                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.patientName}} </td>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.lead}} </td>
                 </ng-container>
                  <!-- Column -->
                  <ng-container matColumnDef="patientContact">
                     <th class="rTableHead" mat-header-cell *matHeaderCellDef>Patient Contact</th>
-                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.patientContact}} </td>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.confirmed_by}} </td>
                 </ng-container>
                 <!-- Column -->
                 <ng-container matColumnDef="patientAge">
                     <th class="rTableHead" mat-header-cell *matHeaderCellDef> Patient Age</th>
-                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.patientAge}} </td>
+                    <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.appointment_desc}} </td>
                 </ng-container>
                
     
@@ -97,6 +97,8 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 
             </table>
+        </div>
+        <div class="paginator mt-4">
             <mat-paginator [pageSizeOptions]="[5 , 10 , 20 , 50]"></mat-paginator>
         </div>
     </div>

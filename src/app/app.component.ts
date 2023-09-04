@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { DialogPosition, MatDialog } from '@angular/material/dialog';
 import { DialogDataComponent } from './dialog-data/dialog-data.component';
 import { GetInsightsDateComponent } from './get-insights-date/get-insights-date.component';
 import { DoctorsAppointmentComponent } from './doctors-appointment/doctors-appointment.component';
@@ -15,12 +15,19 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
   }
 
-  openModal() {
+  openModal(event:any) {
+
+    const dialogPosition: DialogPosition = {
+      top: event.y + 'px',
+      right: event.x + 'px'
+    };
+
     this.dialog.open(DoctorsAppointmentComponent, {
       disableClose: true,
       width: '70%',
       autoFocus: false, 
       restoreFocus: false,
+      position:dialogPosition,
     
     });
   }

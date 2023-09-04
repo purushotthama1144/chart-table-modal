@@ -56,3 +56,17 @@
 .mdc-data-table__header-cell {
     color: #fff;
 }
+
+.mdc-data-table__header-cell,
+.mdc-data-table__cell {
+    text-align: center;
+}
+
+.table-wrap {
+    height: 250px;
+    overflow-y: auto;
+}
+
+.aapointment-table-inner {
+    padding-bottom: 30px;
+}
