@@ -114,3 +114,11 @@ td.mat-calendar-body-label {
   color: #3f51b5;
   border:none !important;
 }
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background-color: #3f51b5 !important;
+}
+
+.mat-mdc-snack-bar-label {
+  color: #fff !important;
+}

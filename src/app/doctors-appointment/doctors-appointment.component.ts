@@ -5,6 +5,8 @@ import * as moment from 'moment';
 import { DatePipe } from '@angular/common';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialogRef } from '@angular/material/dialog';
+import { SnackbarService } from '../snackbar.service';
 
 @Component({
   selector: 'app-doctors-appointment',
@@ -26,60 +28,6 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
   selectedSlot:any;
   availableSlots: any[] = [];
   dateDataNew:any;
-  dateData = {
-    "results": [
-      {
-        "id": 3,
-        "available_date_time_slot": [
-          {
-            "from_datetime": "2023-08-30T12:09:53Z",
-            "to_datetime": "2023-08-30T12:09:55Z",
-            "resting_time": 0,
-            "consulting_time": 15,
-            "from_time": "12:10:57",
-            "to_time": "12:30:58",
-            "date_slot_id": 3,
-            "time_slot_id": 6
-          },
-          {
-            "from_datetime": "2023-08-30T12:09:53Z",
-            "to_datetime": "2023-08-30T12:09:55Z",
-            "resting_time": 0,
-            "consulting_time": 15,
-            "from_time": "12:20:17",
-            "to_time": "12:35:24",
-            "date_slot_id": 3,
-            "time_slot_id": 7
-          },
-          {
-            "from_datetime": "2023-08-30T12:09:53Z",
-            "to_datetime": "2023-08-30T12:09:55Z",
-            "resting_time": 0,
-            "consulting_time": 15,
-            "from_time": "13:20:17",
-            "to_time": "13:35:24",
-            "date_slot_id": 3,
-            "time_slot_id": 8
-          }
-        ]
-      },
-      {
-        "id": 4,
-        "available_date_time_slot": [
-          {
-            "from_datetime": "2023-08-31T12:10:06Z",
-            "to_datetime": "2023-08-31T12:10:10Z",
-            "resting_time": 0,
-            "consulting_time": 15,
-            "from_time": "12:10:46",
-            "to_time": "12:25:51",
-            "date_slot_id": 4,
-            "time_slot_id": 9
-          }
-        ]
-      }
-    ]
-  }
 
   selectedDateData: any;
   isCalendarVisible = false;
@@ -99,11 +47,12 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private appointmentService: AppointmentService, private datePipe: DatePipe) { }
+  constructor(private appointmentService: AppointmentService, 
+    public dialogRef: MatDialogRef<DoctorsAppointmentComponent>, 
+    private snackbarService: SnackbarService) { }
 
   ngOnInit(): void {
-    this.fetchBranchDetails()
-    this.fetchSlots();
+    this.fetchBranchDetails();
     this.fetchAppointmentList();
   }
 
@@ -176,15 +125,12 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
     const payload = {
       department: this.selectedDepartmentData.id,
       tenant: this.selectedDepartmentData.organization,
-      branch: this.selectedDoctorData.branch,
+      branch: this.selectedDepartmentData.branch,
       doctor: this.selectedDoctorData.doctor_detail.doctor_id
     }
     this.appointmentService.getDateSlot(payload).subscribe((data) => {
       if (data) {
         this.dateDataNew = data;
-        console.log(this.dateDataNew)
-
-        // If api has data replace this.dateData with this.dateDataNew in the below lines and remove dateData object above
       }
     })
   }
@@ -200,8 +146,8 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
     const formattedDate = moment(date).format('YYYY-MM-DD');
     let isEnabled = false;
   
-    this.dateData.results.forEach(result => {
-      result.available_date_time_slot.forEach(slot => {
+    this.dateDataNew.results.forEach((result:any) => {
+      result.available_date_time_slot.forEach((slot:any) => {
         if (slot.from_datetime.includes(formattedDate)) {
           isEnabled = true;
         }
@@ -217,49 +163,63 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
 
   fetchSlots() {
     this.availableSlots = [];
-    this.availableSlots = this.dateData.results.flatMap(result =>
-      result.available_date_time_slot.filter(slot =>
-        slot.from_datetime.startsWith(this.dateEvent)).map(slot => ({
-          timeSlot: `${slot.from_time.slice(0, -3)} - ${slot.to_time.slice(0, -3)}`,
-          timeSlotId: slot.time_slot_id
+    this.availableSlots = this.dateDataNew.results.flatMap((result: any) =>
+      result.available_date_time_slot.filter((slot: any) =>
+        slot.from_datetime.startsWith(this.dateEvent)).map((slot: any) => {
+        
+          const fromTimeAMPM = this.convertToAMPM(slot.from_time.slice(0, -3));
+          const toTimeAMPM = this.convertToAMPM(slot.to_time.slice(0, -3));
+  
+          return {
+            timeSlot: `${fromTimeAMPM} - ${toTimeAMPM}`,
+            timeSlotId: slot.time_slot_id
+          };
         })
-      )
     );
+  }
+
+  convertToAMPM(time24: string): string {
+    let [hours, minutes] = time24.split(':');
+    let period = 'AM';
+  
+    if (parseInt(hours) >= 12) {
+      period = 'PM';
+      if (parseInt(hours) > 12) {
+        hours = (parseInt(hours) - 12).toString();
+      }
+    }
+  
+    return `${hours}:${minutes} ${period}`;
+  }
+
+  bookAppointment(selectedDate: Date) {
+    const date = moment(selectedDate).format('YYYY-MM-DD');
+    const payload = {
+      department: this.selectedDepartmentData.id,
+      tenant: this.selectedDepartmentData.organization,
+      branch: this.selectedBranch,
+      doctor: this.selectedDoctorData.doctor_detail.doctor_id,
+      time_slot: this.selectedSlot,
+      date: date,
+      lead: 3,
+    }
+
+    this.appointmentService.saveAppointment(payload).subscribe((data:any) => {
+      
+      if(data.status == 201) {
+        console.log(data)
+        this.snackbarService.openSnackBar("mat-primary", data.message);
+        this.dialogRef.close();
+      }
+      else {
+
+      }
+    })
   }
 
   fetchAppointmentList() {
     this.appointmentService.getAppointmentList().subscribe((data) => {
       console.log(data)
     })
-  }
-
-  bookAppointment(selectedBranch: string , selectedDoctor: string, selectedDate: Date, selectedSlot: number , selectedDepartment: string) {
-    const selectedBranchName =  this.branchData.find((branch:any) => branch.id === selectedBranch)?.branch_name;
-    const selectedDoctorName = this.doctorsData.find((doctor:any) => doctor.doctor_detail.doctor_id === selectedDoctor)?.doctor_detail.doctor_name;
-    const selectedSlotInfo = this.availableSlots.find((slot:any) => slot.timeSlotId === selectedSlot)?.timeSlot;
-    const department = this.departmentData.find((department:any) => department.id === selectedDepartment)?.department_title;
-    const date = moment(selectedDate).format('YYYY-MM-DD');
- 
-    console.log("With Details:" , selectedBranchName , department , selectedDoctorName , date , selectedSlotInfo)
-    console.log('With Only ID:', {
-        branch: this.selectedBranch,
-        department: this.selectedDepartment,
-        doctor: this.selectedDoctor,
-        date: this.selectedDate,
-        slot: this.selectedSlot,
-      });
-
-      const payload = {
-        department: this.selectedDepartmentData.id,
-        tenant: this.selectedDepartmentData.organization,
-        branch: this.selectedBranch,
-        doctor: this.selectedDoctorData.doctor_detail.doctor_id,
-        time_slot: this.selectedSlot,
-        date: date,
-        lead: 3,
-      }
-      this.appointmentService.saveAppointment(payload).subscribe((data) => {
-        console.log(data)
-      })
   }
 }

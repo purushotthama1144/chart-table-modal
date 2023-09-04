@@ -47,7 +47,7 @@
 
     <div class="action-buttton-block text-right">
         <button mat-dialog-close class="btn close-button">Close</button>
-        <button (click)="bookAppointment(selectedBranch, selectedDoctor, selectedDate, selectedSlot , selectedDepartment)" class="btn" [disabled]="!selectedDoctor || !selectedDate">Save</button>
+        <button (click)="bookAppointment(selectedDate)" class="btn" [disabled]="!selectedDoctor || !selectedDate">Save</button>
     </div>
 
     <div class="appointment-details">

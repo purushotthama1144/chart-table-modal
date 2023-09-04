@@ -30,6 +30,7 @@ import { DoctorsAppointmentComponent } from './doctors-appointment/doctors-appoi
 import {MatSelectModule} from '@angular/material/select';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './doctors-appointment/token-interceptor';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { TokenInterceptor } from './doctors-appointment/token-interceptor';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    HttpClientModule   
+    HttpClientModule   ,
+    MatSnackBarModule
   ],
   
   providers: [
