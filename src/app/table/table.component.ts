@@ -172,7 +172,6 @@ export class TableComponent {
 
   hasNoContent = (_: number, _nodeData: TodoItemFlatNode) => _nodeData.item === '';
 
-
   transformer = (node: TodoItemNode, level: number) => {
     const existingNode = this.nestedNodeMap.get(node);
     const flatNode =
@@ -258,5 +257,4 @@ export class TableComponent {
     }
     return null;
   }
-
 }

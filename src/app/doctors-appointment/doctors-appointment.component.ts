@@ -1,12 +1,11 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { AppointmentService } from './appointment.service';
-import { MatCalendarCellClassFunction, MatDatepickerInputEvent } from '@angular/material/datepicker';
-import * as moment from 'moment';
-import { DatePipe } from '@angular/common';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialogRef } from '@angular/material/dialog';
 import { SnackbarService } from '../snackbar.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-doctors-appointment',
@@ -14,21 +13,15 @@ import { SnackbarService } from '../snackbar.service';
   styleUrls: ['./doctors-appointment.component.css']
 })
 export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
-
-  selectedBranch: any;
   branchData: any;
   selectedBranchData: any;
   departmentData: any;
-  selectedDepartment: any;
   selectedDepartmentData: any;
-  selectedDoctor: any;
   doctorsData: any;
   selectedDoctorData: any;
   selectedDate: any;
-  selectedSlot:any;
   availableSlots: any[] = [];
   dateDataNew:any;
-
   selectedDateData: any;
   isCalendarVisible = false;
   appointmentData: any;
@@ -43,6 +36,14 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
     'patientContact',
     'patientAge',
   ];
+
+  appointmentForm = new FormGroup({
+    selectedBranch: new FormControl('', Validators.required),
+    selectedDepartment: new FormControl('', Validators.required),
+    selectedDoctor: new FormControl('', Validators.required),
+    selectedDate: new FormControl('', Validators.required),
+    selectedSlot: new FormControl('' , Validators.required),
+  });
 
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -60,7 +61,6 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
-
   fetchBranchDetails() {
     const payload = {
       tenant: 1
@@ -73,16 +73,18 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
     })
   }
 
-  onBranchSelection() {
-    this.selectedBranchData = this.branchData.find((val: any) => val.id == this.selectedBranch);
-    this.selectedDepartment = "";
-    this.selectedDoctor = "";
+  onBranchSelection(branch:any) {
+    this.selectedBranchData = this.branchData.find((val: any) => val.id == branch.value);
+    this.appointmentForm.controls['selectedDepartment'].reset();
+    this.appointmentForm.controls['selectedDoctor'].reset();
+    this.appointmentForm.controls['selectedDate'].reset();
+    this.appointmentForm.controls['selectedSlot'].reset();
     this.fetchDepartment();
   }
 
   fetchDepartment() {
     const payload = {
-      branch: this.selectedBranchData.id,
+      branch: this.appointmentForm.value.selectedBranch,
       tenant: this.selectedBranchData.organization
     }
 
@@ -93,17 +95,19 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
     })
   }
 
-  onDepartmentSelection() {
-    this.selectedDepartmentData = this.departmentData.find((val: any) => val.id == this.selectedDepartment);
-    this.selectedDoctor = "";
+  onDepartmentSelection(department:any) {
+    this.selectedDepartmentData = this.departmentData.find((val: any) => val.id == department.value);
+    this.appointmentForm.controls['selectedDoctor'].reset();
+    this.appointmentForm.controls['selectedDate'].reset();
+    this.appointmentForm.controls['selectedSlot'].reset();
     this.fetchDoctors();
   }
 
   fetchDoctors() {
     const payload = {
-      department: this.selectedDepartmentData.id,
-      tenant: this.selectedDepartmentData.organization,
-      branch: this.selectedDepartmentData.branch
+      branch: this.appointmentForm.value.selectedBranch,
+      department: this.appointmentForm.value.selectedDepartment,
+      tenant: this.selectedBranchData.organization,
     }
     this.appointmentService.getDoctors(payload).subscribe((data) => {
       if (data) {
@@ -112,17 +116,19 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
     })
   }
 
-  onDoctorSelection() {
-    this.selectedDoctorData = this.doctorsData.find((doctorData: any) => doctorData.doctor_detail.doctor_id === this.selectedDoctor);
+  onDoctorSelection(doctor:any) {
+    this.selectedDoctorData = this.doctorsData.find((doctorData: any) => doctorData.doctor_detail.doctor_id === doctor.value);
+    this.appointmentForm.controls['selectedDate'].reset();
+    this.appointmentForm.controls['selectedSlot'].reset();
     this.fetchDates()
   }
 
   fetchDates() {
     const payload = {
-      department: this.selectedDepartmentData.id,
-      tenant: this.selectedDepartmentData.organization,
-      branch: this.selectedDepartmentData.branch,
-      doctor: this.selectedDoctorData.doctor_detail.doctor_id
+      branch: this.appointmentForm.value.selectedBranch,
+      department: this.appointmentForm.value.selectedDepartment,
+      tenant: this.selectedBranchData.organization, 
+      doctor: this.appointmentForm.value.selectedDoctor
     }
     this.appointmentService.getDateSlot(payload).subscribe((data) => {
       if (data) {
@@ -154,6 +160,7 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
 
   onDateSelected(selectedDate: any) {
     this.dateEvent = moment(selectedDate.value).format('YYYY-MM-DD');
+    this.appointmentForm.controls['selectedSlot'].reset();
     this.fetchSlots();
   }
 
@@ -162,7 +169,6 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
     this.availableSlots = this.dateDataNew.results.flatMap((result: any) =>
       result.available_date_time_slot.filter((slot: any) =>
         slot.from_datetime.startsWith(this.dateEvent)).map((slot: any) => {
-        
           const fromTimeAMPM = this.convertToAMPM(slot.from_time.slice(0, -3));
           const toTimeAMPM = this.convertToAMPM(slot.to_time.slice(0, -3));
   
@@ -177,7 +183,6 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
   convertToAMPM(time24: string): string {
     let [hours, minutes] = time24.split(':');
     let period = 'AM';
-  
     if (parseInt(hours) >= 12) {
       period = 'PM';
       if (parseInt(hours) > 12) {
@@ -191,34 +196,36 @@ export class DoctorsAppointmentComponent implements OnInit, AfterViewInit {
   bookAppointment(selectedDate: Date) {
     const date = moment(selectedDate).format('YYYY-MM-DD');
     const payload = {
-      department: this.selectedDepartmentData.id,
-      tenant: this.selectedDepartmentData.organization,
-      branch: this.selectedBranch,
-      doctor: this.selectedDoctorData.doctor_detail.doctor_id,
-      time_slot: this.selectedSlot,
+      branch: this.appointmentForm.value.selectedBranch,
+      department: this.appointmentForm.value.selectedDepartment,
+      tenant: this.selectedBranchData.organization, 
+      doctor: this.appointmentForm.value.selectedDoctor,
+      time_slot: this.appointmentForm.value.selectedSlot,
       date: date,
       lead: 3,
     }
 
-    this.appointmentService.saveAppointment(payload).subscribe((data:any) => {
-      if(data.status == 201) {
-        console.log(data)
-        this.snackbarService.openSnackBar("mat-primary", data.message);
-        this.dialogRef.close();
-      }
-      else {
-
-      }
-    })
+    if((payload.branch != null) && (payload.department != null) &&(payload.tenant != null) 
+      && (payload.doctor != null) && (payload.time_slot != null) && (payload.date != null) && (payload.lead != null)) {
+      this.appointmentService.saveAppointment(payload).subscribe((data:any) => {
+        if(data.status == 201) {
+          this.snackbarService.openSnackBar("mat-primary", data.message);
+          this.dialogRef.close();
+        }
+        else {
+          this.snackbarService.openSnackBar("mat-primary", data.message);
+        }
+      })
+    } else {
+      this.snackbarService.openSnackBar("mat-warn", "Invalid Data");
+    }
   }
 
   fetchAppointmentList() {
     this.appointmentService.getAppointmentList().subscribe((data) => {
       this.appointmentData = data
       this.dataSource = new MatTableDataSource(this.appointmentData.results);
-      console.log(this.dataSource)
       this.dataSource.paginator = this.paginator;
-      console.log(this.appointmentData)
     })
   }
 }

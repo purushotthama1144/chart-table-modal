@@ -1,53 +1,56 @@
 <h2 mat-dialog-title>NEW APPOINTMENT<div class="close-icon" mat-dialog-close><img src="../../assets/images/close-icon.png" alt=""></div></h2>
 <mat-dialog-content>
-    
-    <div class="container m-auto flex flex-wrap items-center">
-        <div class="w-100 md:w-1/2 text-center">
-            <mat-form-field>
-                <mat-label>Branches:</mat-label>
-                <mat-select [(ngModel)]="selectedBranch" (selectionChange)="onBranchSelection()">
-                    <mat-option *ngFor="let branch of branchData" [value]="branch.id">{{ branch.branch_name }}</mat-option>
-                </mat-select>
-            </mat-form-field>
+    <form [formGroup]="appointmentForm" action="">
+        <div class="container m-auto flex flex-wrap items-center">
+            <div class="w-100 md:w-1/2 text-center">
+                <mat-form-field appearance="outline">
+                    <mat-label>Branches:</mat-label>
+                    <mat-select formControlName="selectedBranch" (selectionChange)="onBranchSelection($event)">
+                        <mat-option *ngFor="let branch of branchData" [value]="branch.id">{{ branch.branch_name }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="w-100 md:w-1/2 text-center">
+                <mat-form-field appearance="outline">
+                    <mat-label>Department:</mat-label>
+                    <mat-select formControlName="selectedDepartment" (selectionChange)="onDepartmentSelection($event)">
+                        <mat-option *ngFor="let department of departmentData" [value]="department.id">{{ department.department_title }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="w-100 md:w-1/2 text-center">
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Doctor:</mat-label>
+                    <mat-select formControlName="selectedDoctor" (selectionChange)="onDoctorSelection($event)">
+                        <mat-option *ngFor="let doctor of doctorsData" [value]="doctor.doctor_detail.doctor_id">{{ doctor.doctor_detail.doctor_name }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+           <div class="w-100 md:w-1/2 text-center position-relative">
+                <mat-form-field style="background-color: #fff;" appearance="outline" class="w-full">
+                    <mat-label>Date</mat-label>
+                    <input matInput [matDatepicker]="picker"
+                    formControlName="selectedDate"   [matDatepickerFilter]="isDateEnabled" 
+                    [disabled]="appointmentForm.value.selectedDoctor == ''"
+                    (dateChange)="onDateSelected($event)">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker" [disabled]="appointmentForm.value.selectedDoctor == ''"></mat-datepicker-toggle>
+                    <mat-datepicker #picker [disabled]="appointmentForm.value.selectedDoctor == ''"></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="w-100 md:w-1/2 text-center">
+                <mat-form-field appearance="outline">
+                    <mat-label>Appointment Slot:</mat-label>
+                    <mat-select formControlName="selectedSlot">
+                        <mat-option *ngFor="let slot of availableSlots" [value]="slot.timeSlotId">{{ slot.timeSlot }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
         </div>
-        <div class="w-100 md:w-1/2 text-center">
-            <mat-form-field>
-                <mat-label>Department:</mat-label>
-                <mat-select [(ngModel)]="selectedDepartment" (selectionChange)="onDepartmentSelection()">
-                    <mat-option *ngFor="let department of departmentData" [value]="department.id">{{ department.department_title }}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="w-100 md:w-1/2 text-center">
-            <mat-form-field>
-                <mat-label>Doctor:</mat-label>
-                <mat-select [(ngModel)]="selectedDoctor" (selectionChange)="onDoctorSelection()">
-                    <mat-option *ngFor="let doctor of doctorsData" [value]="doctor.doctor_detail.doctor_id">{{ doctor.doctor_detail.doctor_name }}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-       <div class="w-100 md:w-1/2 text-center position-relative">
-            <mat-form-field style="background-color: #fff;">
-                <mat-label>Date</mat-label>
-                <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate"
-                    [matDatepickerFilter]="isDateEnabled" (dateChange)="onDateSelected($event)">
-                <mat-datepicker-toggle matIconSuffix [for]="picker" [disabled]="!selectedDoctor"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-        </div>
-        <div class="w-100 md:w-1/2 text-center">
-            <mat-form-field>
-                <mat-label>Appointment Slot:</mat-label>
-                <mat-select [(ngModel)]="selectedSlot">
-                    <mat-option *ngFor="let slot of availableSlots" [value]="slot.timeSlotId">{{ slot.timeSlot }}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-    </div>
+    </form>
 
     <div class="action-buttton-block text-right">
         <button mat-dialog-close class="btn close-button">Close</button>
-        <button (click)="bookAppointment(selectedDate)" class="btn" [disabled]="!selectedDoctor || !selectedDate">Save</button>
+        <button (click)="bookAppointment(selectedDate)" class="btn" [disabled]="appointmentForm.invalid && appointmentForm.value.selectedSlot == ''">Save</button>
     </div>
 
     <div class="appointment-details">

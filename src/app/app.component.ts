@@ -16,7 +16,6 @@ export class AppComponent implements OnInit{
   }
 
   openModal(event:any) {
-
     const dialogPosition: DialogPosition = {
       top: event.y + 'px',
       right: event.x + 'px'

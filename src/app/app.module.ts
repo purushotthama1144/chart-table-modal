@@ -24,7 +24,7 @@ import { DialogDataComponent } from './dialog-data/dialog-data.component';
 import { GetInsightsDateComponent } from './get-insights-date/get-insights-date.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { DoctorsAppointmentComponent } from './doctors-appointment/doctors-appointment.component';
 import {MatSelectModule} from '@angular/material/select';
@@ -65,7 +65,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatNativeDateModule,
     MatSelectModule,
     HttpClientModule   ,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ReactiveFormsModule
   ],
   
   providers: [
