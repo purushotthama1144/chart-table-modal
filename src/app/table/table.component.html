@@ -1,6 +1,6 @@
 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
-        {{node.item}}
+        <div class="d-flex" [innerHTML]="node.item"></div>
     </mat-tree-node>
     <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
         <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.item">
@@ -8,6 +8,7 @@
                 {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
             </mat-icon>
         </button>
-        {{node.item}}
+        <div class="d-flex" [innerHTML]="node.item"></div>
+        
     </mat-tree-node>
 </mat-tree>

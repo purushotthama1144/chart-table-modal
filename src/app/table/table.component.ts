@@ -107,19 +107,19 @@ export class ChecklistDatabase {
     const treeStructure: TodoItemNode[] = [];
     data.firstLevel.forEach((firstLevelItem: any) => {
       const firstLevelNode = new TodoItemNode();
-      firstLevelNode.item = `${firstLevelItem.firstLevelId} - ${firstLevelItem.firstLevelName} - ${firstLevelItem.firstLevelType}`;
+      firstLevelNode.item = `<div class="col">${firstLevelItem.firstLevelId}</div><div class="col">${firstLevelItem.firstLevelName}</div><div class="col">${firstLevelItem.firstLevelType}</div>`;
       firstLevelNode.children = [];
 
       if (firstLevelItem.secondLevel) {
         firstLevelItem.secondLevel.forEach((secondLevelItem: any) => {
           const secondLevelNode = new TodoItemNode();
-          secondLevelNode.item = `    ${secondLevelItem.secondLevelId} - ${secondLevelItem.secondLevelName}`;
+          secondLevelNode.item = `<div class="col">${secondLevelItem.secondLevelId}</div><div class="col">${secondLevelItem.secondLevelName}</div>`;
           secondLevelNode.children = [];
 
           if (secondLevelItem.thirdLevel) {
             secondLevelItem.thirdLevel.forEach((thirdLevelItem: any) => {
               const thirdLevelNode = new TodoItemNode();
-              thirdLevelNode.item = `${thirdLevelItem.thirdLevelId} - ${thirdLevelItem.thirdLevelName}`;
+              thirdLevelNode.item = `<div class="col">${thirdLevelItem.thirdLevelId}</div> <div class="col">${thirdLevelItem.thirdLevelName}</div>`;
               secondLevelNode.children.push(thirdLevelNode);
             });
           }

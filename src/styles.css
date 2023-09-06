@@ -78,28 +78,18 @@ body {
   color: #ffc107 !important;
 }
 
-.mat-calendar {
-  display: block;
-  position: absolute;
-  width: 100%;
-}
-
-td.mat-calendar-body-label {
-  display: none;
-}
-
 .mat-calendar-body-cell {
   color: green !important;
   font-size: 10px !important;
 }
 
 .mat-datepicker-content .mat-calendar {
-  background: #ccc;
+  background-color: #ccc;
 }
 
 .mat-calendar-body-cell .mat-calendar-body-cell-content {
   border: 1px solid green !important;
-  background: green;
+  background-color: green;
   color: #fff !important;
 }
 
@@ -107,20 +97,17 @@ td.mat-calendar-body-label {
   color: inherit !important;
   border: none !important;
 }
+
+.mat-calendar-body-cell.mat-calendar-body-active .mat-calendar-body-cell-content{
+  color: #fff !important;
+  background-color: #3f51b5 !important;
+  border: 1px solid #3f51b5 !important;
+}
+
 .mat-calendar-body-cell.mat-calendar-body-disabled .mat-calendar-body-cell-content {
   border: none !important;
-  background: transparent !important;
+  background-color: transparent !important;
   color: #000 !important;
-}
-
-.mat-calendar {
-  background-color: #fff;
-}
-
-.mat-calendar-body-selected {
-  background-color: #fff !important;
-  color: #3f51b5;
-  border:none !important;
 }
 
 .mat-mdc-snack-bar-container .mdc-snackbar__surface {
@@ -133,4 +120,8 @@ td.mat-calendar-body-label {
 
 .mdc-notched-outline__notch {
   border-right: none;
+}
+
+.col {
+  width: 33.33%;
 }
